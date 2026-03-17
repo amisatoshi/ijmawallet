@@ -38,7 +38,7 @@ moves that mission forward.
 
 ```bash
 # Fork the repo on GitHub, then:
-git clone https://github.com/YOUR_USERNAME/ijmawallet.git
+git clone https://github.com/amisatoshi/ijmawallet.git
 cd ijmawallet
 
 # Install dependencies
