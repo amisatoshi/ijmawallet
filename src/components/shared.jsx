@@ -184,66 +184,20 @@ export function ScreenWrapper({ children, noPad, style }) {
   )
 }
 
-// ─── IslamicPattern — 8-pointed star lattice (matches onboarding imagery) ──────
-// Constructed from two overlapping squares rotated 45°, with connecting lattice lines.
-// Each tile is 120×120. Use on any screen for visual continuity.
-export function GeomPattern({ opacity = 0.06, color }) {
-  const stroke = color || '#C9A84C'
-  // 8-pointed star geometry:
-  // Outer square (0°):   points at N/E/S/W at radius r from centre
-  // Inner square (45°):  points at NE/SE/SW/NW at same radius
-  // Together they form an 8-pointed star.
-  // We tile these with connecting diagonal lines to form the lattice.
-  const id = `islamic-star-${stroke.replace('#','')}`
+// ── GeomPattern — Islamic geometric tile background
+// Uses public/images/pattern-tile.png (gold lines on white, seamless repeat).
+// backgroundSize controls motif scale — 220px gives fine subtle texture on mobile.
+export function GeomPattern({ opacity = 0.07 }) {
+  const BASE = import.meta.env.BASE_URL
   return (
-    <svg
-      style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', pointerEvents: 'none' }}
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <defs>
-        <pattern id={id} x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
-          {/* ── Primary 8-pointed star centred at (60,60) ── */}
-          {/* Outer octagon */}
-          <polygon
-            points="60,18 79,28 91,47 91,73 79,92 60,102 41,92 29,73 29,47 41,28"
-            fill="none" stroke={stroke} strokeWidth="0.8" opacity={opacity * 10}
-          />
-          {/* Inner rotated square — creates the star points */}
-          <polygon
-            points="60,26 82,48 60,70 38,48"
-            fill="none" stroke={stroke} strokeWidth="0.6" opacity={opacity * 8}
-          />
-          {/* Upright square */}
-          <polygon
-            points="60,29 83,60 60,91 37,60"
-            fill="none" stroke={stroke} strokeWidth="0.6" opacity={opacity * 8}
-          />
-          {/* ── Star points — 8 small diamond tips ── */}
-          <line x1="60" y1="18" x2="60" y2="29" stroke={stroke} strokeWidth="0.5" opacity={opacity * 7}/>
-          <line x1="91" y1="47" x2="83" y2="48" stroke={stroke} strokeWidth="0.5" opacity={opacity * 7}/>
-          <line x1="91" y1="73" x2="83" y2="72" stroke={stroke} strokeWidth="0.5" opacity={opacity * 7}/>
-          <line x1="60" y1="102" x2="60" y2="91" stroke={stroke} strokeWidth="0.5" opacity={opacity * 7}/>
-          <line x1="29" y1="73" x2="37" y2="72" stroke={stroke} strokeWidth="0.5" opacity={opacity * 7}/>
-          <line x1="29" y1="47" x2="37" y2="48" stroke={stroke} strokeWidth="0.5" opacity={opacity * 7}/>
-          {/* ── Corner stars at tile corners (60,0), (120,60), (60,120), (0,60) ── */}
-          {/* Top centre (60,0) partial star */}
-          <polygon
-            points="60,-18 79,-8 91,11 91,11 79,30 60,40 41,30 29,11 29,11 41,-8"
-            fill="none" stroke={stroke} strokeWidth="0.7" opacity={opacity * 8}
-          />
-          {/* Connecting lattice lines — diagonal grid */}
-          <line x1="0"   y1="0"   x2="29"  y2="47"  stroke={stroke} strokeWidth="0.4" opacity={opacity * 5}/>
-          <line x1="120" y1="0"   x2="91"  y2="47"  stroke={stroke} strokeWidth="0.4" opacity={opacity * 5}/>
-          <line x1="0"   y1="120" x2="29"  y2="73"  stroke={stroke} strokeWidth="0.4" opacity={opacity * 5}/>
-          <line x1="120" y1="120" x2="91"  y2="73"  stroke={stroke} strokeWidth="0.4" opacity={opacity * 5}/>
-          <line x1="29"  y1="47"  x2="41"  y2="28"  stroke={stroke} strokeWidth="0.4" opacity={opacity * 5}/>
-          <line x1="91"  y1="47"  x2="79"  y2="28"  stroke={stroke} strokeWidth="0.4" opacity={opacity * 5}/>
-          <line x1="29"  y1="73"  x2="41"  y2="92"  stroke={stroke} strokeWidth="0.4" opacity={opacity * 5}/>
-          <line x1="91"  y1="73"  x2="79"  y2="92"  stroke={stroke} strokeWidth="0.4" opacity={opacity * 5}/>
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill={`url(#${id})`} />
-    </svg>
+    <div style={{
+      position: 'absolute', inset: 0,
+      backgroundImage: `url(${BASE}images/pattern-tile.png)`,
+      backgroundRepeat: 'repeat',
+      backgroundSize: '220px 220px',
+      opacity,
+      pointerEvents: 'none',
+    }} />
   )
 }
 
