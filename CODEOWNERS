@@ -1,0 +1,17 @@
+# .github/CODEOWNERS
+
+# Default owner for everything
+*                                   @amisatoshi
+
+# Cryptographic core — always requires @amisatoshi review
+src/lib/security.js                 @amisatoshi
+src/lib/bitcoin.js                  @amisatoshi
+src/context/WalletContext.jsx       @amisatoshi
+
+# All library files — high sensitivity
+src/lib/                            @amisatoshi
+
+# CI/CD pipelines — supply chain risk
+.github/workflows/                  @amisatoshi
+package.json                        @amisatoshi
+package-lock.json                   @amisatoshi
