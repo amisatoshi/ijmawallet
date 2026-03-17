@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" role="img" aria-label="Ijma Wallet — إجماع">
+  <title>Ijma Wallet — إجماع</title>
+  <desc>The Ijma Wallet logo: Bitcoin symbol, Lightning bolt, and running ostrich on a teal circle.</desc>
+
+  <!-- Background -->
+  <circle cx="250" cy="250" r="250" fill="#4BAF92"/>
+
+  <!-- Lightning bolt — large diagonal blade centre -->
+  <polygon points="290,28 198,218 240,218 202,472 298,282 256,282" fill="white"/>
+
+  <!-- Bitcoin ₿ — left side -->
+  <rect x="116" y="72" width="20" height="208" rx="5" fill="white"/>
+  <rect x="98" y="64" width="58" height="18" rx="7" fill="white"/>
+  <rect x="98" y="254" width="58" height="18" rx="7" fill="white"/>
+  <path d="M126 82L194 82C228 82 248 98 248 124C248 150 228 164 194 164L126 164Z" fill="white"/>
+  <path d="M144 100L190 100C210 100 224 110 224 124C224 138 210 146 190 146L144 146Z" fill="#4BAF92"/>
+  <path d="M126 164L200 164C238 164 260 182 260 210C260 238 238 256 200 256L126 256Z" fill="white"/>
+  <path d="M144 182L196 182C218 182 234 194 234 210C234 226 218 236 196 236L144 236Z" fill="#4BAF92"/>
+  <rect x="54" y="146" width="76" height="18" rx="7" fill="white"/>
+  <rect x="54" y="202" width="76" height="18" rx="7" fill="white"/>
+
+  <!-- Ostrich — running right -->
+  <ellipse cx="366" cy="298" rx="76" ry="58" fill="white" transform="rotate(-18,366,298)"/>
+  <path d="M322 250C312 218 318 172 332 144C346 116 370 106 392 114C414 122 418 146 404 166C390 186 370 190 360 210C350 230 346 244 340 252Z" fill="white"/>
+  <ellipse cx="396" cy="116" rx="24" ry="20" fill="white" transform="rotate(-8,396,116)"/>
+  <path d="M413 110L444 117L413 126Z" fill="white"/>
+  <circle cx="404" cy="112" r="6" fill="#4BAF92"/>
+  <path d="M426 264C448 240 472 228 476 204C484 216 474 248 452 266Z" fill="white"/>
+  <path d="M436 272C462 254 484 246 490 224C496 238 484 268 458 280Z" fill="white"/>
+  <path d="M442 282C466 270 488 266 494 248C498 262 486 284 460 292Z" fill="white"/>
+  <path d="M334 344C326 368 312 394 300 422L320 428C332 402 346 374 354 350Z" fill="white"/>
+  <path d="M300 422C294 440 290 454 288 468L308 470C310 456 314 442 320 428Z" fill="white"/>
+  <path d="M280 466L310 470L326 476L322 484L304 480L278 474Z" fill="white"/>
+  <path d="M270 462L286 466L282 480L266 476Z" fill="white"/>
+  <path d="M384 352C392 372 404 394 414 416L432 408C422 386 410 364 402 344Z" fill="white"/>
+  <path d="M414 416C420 434 424 450 426 464L444 462C442 446 438 430 432 408Z" fill="white"/>
+  <path d="M422 462L446 460L462 466L458 476L440 472L420 474Z" fill="white"/>
+  <path d="M460 464L476 460L480 472L464 476Z" fill="white"/>
+</svg>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#F7931A" />
+    <meta name="description" content="Ijma Wallet — Sovereign Bitcoin · Lightning · Nostr · Ecash. Non-custodial. Halal." />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="Ijma" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Ijma Wallet" />
+    <meta property="og:description" content="Sovereign · Private · Halal Bitcoin wallet" />
+    <meta property="og:url" content="https://www.ijmawallet.com" />
+
+    <!-- Security headers via meta (also set server-side) -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="Referrer-Policy" content="no-referrer" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <title>Ijma Wallet — إجماع</title>
+
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      body {
+        background: #0A0A0F;
+        color: #F0F0F8;
+        font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        overscroll-behavior: none;
+        /* Prevent text selection during PIN entry */
+        -webkit-user-select: none;
+        user-select: none;
+      }
+      input, textarea { -webkit-user-select: text; user-select: text; }
+      /* Hide scrollbar but keep scroll */
+      ::-webkit-scrollbar { width: 0; }
+      /* Prevent iOS bounce */
+      html { height: 100%; overflow: hidden; }
+      #root { height: 100vh; overflow-y: auto; -webkit-overflow-scrolling: touch; }
+    </style>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,700;1,9..144,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
