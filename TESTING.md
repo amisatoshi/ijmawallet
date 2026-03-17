@@ -410,6 +410,6 @@ For questions, feedback, or to report issues:
 
 - **GitHub:** https://github.com/amisatoshi/ijmawallet/issues
 - **Web:** https://www.blockchainology.co.uk
-- **Nostr:** Search for `amisatoshi` on primal.net
+- **Nostr:** Search for `amisatoshi` on primal.net (npub18z533j9gxhnlkqukp75wnd5mjv5njqkaj07atslnrk2dp9rxsp0q6650l4)
 
 *Ijma Wallet is MIT licensed. Non-custodial. Open source. Halal.*
