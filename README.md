@@ -232,5 +232,3 @@ Maintainer: [@amisatoshi](https://github.com/amisatoshi)
 
 ---
 
-*بسم الله الرحمن الرحيم*  
-*In the name of Allah, the Most Gracious, the Most Merciful.*
