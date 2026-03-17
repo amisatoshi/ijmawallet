@@ -101,7 +101,7 @@ npm install -g pnpm
 
 ```bash
 # Clone your repo (after pushing — see Section 11)
-git clone https://github.com/YOUR_USERNAME/ijma-wallet.git
+git clone https://github.com/amisatoshi/ijma-wallet.git
 cd ijma-wallet
 
 # Install dependencies
@@ -545,7 +545,7 @@ su - ijma
 ### 10.2 Clone and build
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/ijma-wallet.git
+git clone https://github.com/amisatoshi/ijma-wallet.git
 cd ijma-wallet
 npm ci
 npm run build
@@ -637,7 +637,7 @@ git init
 git add .
 git commit -m "feat: Ijma Wallet v0.1.0 — Bitcoin/Lightning/Nostr/Ecash PWA"
 git branch -M main
-git remote add origin https://github.com/YOUR_USERNAME/ijma-wallet.git
+git remote add origin https://github.com/amisatoshi/ijma-wallet.git
 git push -u origin main
 ```
 
@@ -1033,7 +1033,7 @@ Before handling real funds, ensure ALL of these are done:
 ## Support & Community
 
 - **Website:** https://www.ijmawallet.com
-- **GitHub:** https://github.com/YOUR_USERNAME/ijma-wallet
+- **GitHub:** https://github.com/amisatoshi/ijma-wallet
 - **Built by:** [Blockchainology](https://www.blockchainology.co.uk)
 - **Nostr:** npub of the project
 
