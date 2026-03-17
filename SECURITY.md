@@ -194,4 +194,4 @@ These are architectural trade-offs that users should be aware of:
 improvement and transparent disclosure.*
 
 Maintainer: [@amisatoshi](https://github.com/amisatoshi)  
-Security contact: security@blockchainology.co.uk
+Security contact: ijma@blockchainology.co.uk
