@@ -21,7 +21,7 @@
 
 ---
 
-> ⚠️ **v0.2.0 — Demo release.** The cryptographic foundations are sound but the
+> ⚠️ **v0.3.0 — Demo release.** The cryptographic foundations are sound but the
 > application has not undergone a professional security audit. Do not store
 > significant funds until v1.0.0. See [SECURITY.md](SECURITY.md).
 
@@ -67,17 +67,17 @@ L1  Bitcoin           Base layer settlement
 | BIP84 SegWit + BIP86 Taproot | ✅ v0.1.0 | Native address derivation |
 | NIP-06 Nostr key derivation | ✅ v0.1.0 | One seed → Bitcoin + Nostr identity |
 | AES-256-GCM vault encryption | ✅ v0.1.0 | PBKDF2 · 600,000 iterations |
-| PIN + WebAuthn biometric auth | ✅ v0.1.0 | FIDO2 · device secure enclave |
+| PIN + WebAuthn biometric auth | ✅ v0.2.0 | FIDO2 · device secure enclave |
 | Cashu ecash (mint/melt/send/receive) | ✅ v0.1.0 | Multi-mint · Chaumian blind sigs |
 | Nostr Zaps (NIP-57) | ✅ v0.1.0 | Lightning tips on social web |
-| Atomic cross-layer swaps | ✅ v0.2.0 | Submarine swaps via Boltz HTLCs |
-| Hardware wallet support | ✅ v0.2.0 | Jade · Coldcard · Ledger · Trezor · Passport · SeedSigner |
+| Atomic cross-layer swaps | 🔜 v0.4.0 | Submarine swaps via Boltz HTLCs |
+| Hardware wallet support | ✅ v0.3.0 | Jade · Coldcard · Ledger · Trezor · Passport · SeedSigner |
 | PWA — offline, installable | ✅ v0.1.0 | Workbox service worker |
 | Mempool.space fee integration | ✅ v0.1.0 | Live fee rates |
-| Beginner / Power user modes | ✅ v0.1.0 | Progressive disclosure |
-| Breez SDK Lightning node | 🔜 v0.3.0 | Embedded non-custodial LN |
-| Fedimint WASM client | 🔜 v0.3.0 | Federation join and management |
-| Social recovery (Shamir + Nostr) | 🔜 v0.3.0 | Threshold secret sharing |
+| Beginner / Expert modes | ✅ v0.3.0 | Progressive disclosure |
+| Breez SDK Lightning node | 🔜 v0.4.0 | Embedded non-custodial LN |
+| Fedimint WASM client | 🔜 v0.5.0 | Federation join and management |
+| Social recovery (Shamir + Nostr) | 🔜 v0.5.0 | Threshold secret sharing |
 | Zakat calculator | 🔜 v0.3.0 | Nisab threshold · 2.5% |
 | Multi-sig 2-of-3 | 🔜 v1.0.0 | Hardware wallet coordination |
 | Web of Trust scoring | 🔜 v1.0.0 | NIP-based reputation |
@@ -210,9 +210,12 @@ formal audit status are documented in [LIBRARIES.md](LIBRARIES.md).
 
 | Phase | Target | Focus |
 |-------|--------|-------|
-| ✅ v0.1.0 | Mar 2026 | Key generation · Cashu · Nostr · PWA · AES vault |
-| ✅ v0.2.0 | Mar 2026 | Atomic swaps · Hardware wallets · Landing page |
-| 🔜 v0.3.0 | Q3 2026 | Breez Lightning · Fedimint · Social recovery · Zakat |
+| ✅ v0.1.0 | Mar 2026 | Key generation · PWA · AES vault |
+| ✅ v0.2.0 | Mar 2026 | Receive onchain · Landing page |
+| ✅ v0.3.0 | Mar 2026 | Hosted Demo · Zakat · Sadaqah |
+| 🔜 v0.3.5 | Q2 2026 | Nostr · Hardware wallets |
+| 🔜 v0.4.0 | Q3 2026 | Breez Lightning · Cashu |
+| 🔜 v0.5.0 | Q4 2026 | Fedimint · Atomic swaps · Social recovery |
 | 🔜 v1.0.0 | 2027 | Multi-sig · Taproot · Web of Trust · Security audit |
 
 ---
