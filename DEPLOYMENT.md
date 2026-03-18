@@ -6,6 +6,14 @@
 
 ---
 
+*بسم الله الرحمن الرحيم*
+
+*In the name of Allah, the Most Gracious, the Most Merciful.*
+
+*May this project be a sadaqah jariyah — a continuing charity.*
+
+---
+
 ## Table of Contents
 
 1. [Project Structure](#1-project-structure)
@@ -32,14 +40,14 @@
 ## 1. Project Structure
 
 ```
-ijma-wallet/
+ijmawallet/
 ├── index.html                    # PWA entry point
 ├── vite.config.js                # Build + PWA config
 ├── package.json                  # Dependencies
 ├── .gitignore
 ├── public/
 │   ├── favicon.svg
-│   ├── pwa-192x192.png           # PWA icons (you must create these)
+│   ├── pwa-192x192.png           # PWA icons 
 │   ├── pwa-512x512.png
 │   └── apple-touch-icon.png
 └── src/
@@ -101,8 +109,8 @@ npm install -g pnpm
 
 ```bash
 # Clone your repo (after pushing — see Section 11)
-git clone https://github.com/amisatoshi/ijma-wallet.git
-cd ijma-wallet
+git clone https://github.com/amisatoshi/ijmawallet.git
+cd ijmawallet
 
 # Install dependencies
 npm install
@@ -456,7 +464,7 @@ npm run deploy
 Add to `vite.config.js` if hosting at a subpath:
 ```javascript
 export default defineConfig({
-  base: '/ijma-wallet/',   // your repo name
+  base: '/ijmawallet/',   // your repo name
   // ...
 })
 ```
@@ -545,8 +553,8 @@ su - ijma
 ### 10.2 Clone and build
 
 ```bash
-git clone https://github.com/amisatoshi/ijma-wallet.git
-cd ijma-wallet
+git clone https://github.com/amisatoshi/ijmawallet.git
+cd ijmawallet
 npm ci
 npm run build
 ```
@@ -574,7 +582,7 @@ server {
     ssl_prefer_server_ciphers on;
     ssl_session_cache shared:SSL:10m;
 
-    root /home/ijma/ijma-wallet/dist;
+    root /home/ijma/ijmawallet/dist;
     index index.html;
 
     # SPA routing
@@ -629,15 +637,15 @@ systemctl enable certbot.timer
 ### 11.1 Create repository
 
 ```bash
-# On GitHub: create new repo "ijma-wallet" (public, MIT license)
+# On GitHub: create new repo "ijmawallet" (public, MIT license)
 
 # In your project folder:
-cd ijma-wallet
+cd ijmawallet
 git init
 git add .
 git commit -m "feat: Ijma Wallet v0.1.0 — Bitcoin/Lightning/Nostr/Ecash PWA"
 git branch -M main
-git remote add origin https://github.com/amisatoshi/ijma-wallet.git
+git remote add origin https://github.com/amisatoshi/ijmawallet.git
 git push -u origin main
 ```
 
@@ -1033,17 +1041,9 @@ Before handling real funds, ensure ALL of these are done:
 ## Support & Community
 
 - **Website:** https://www.ijmawallet.com
-- **GitHub:** https://github.com/amisatoshi/ijma-wallet
+- **GitHub:** https://github.com/amisatoshi/ijmawallet
 - **Built by:** [Blockchainology](https://www.blockchainology.co.uk)
 - **Nostr:** npub of the project
-
----
-
-*بسم الله الرحمن الرحيم*
-
-*In the name of Allah, the Most Gracious, the Most Merciful.*
-
-*May this project be a sadaqah jariyah — a continuing charity.*
 
 ---
 
