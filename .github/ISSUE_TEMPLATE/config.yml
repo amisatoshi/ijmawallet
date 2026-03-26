@@ -1,0 +1,16 @@
+blank_issues_enabled: false
+
+contact_links:
+  - name: 🔐 Security Disclosure (Encrypted)
+    url: https://www.blockchainology.co.uk/pgp.asc
+    about: |
+      For sensitive security vulnerabilities, please send an encrypted email using our PGP key.
+      Do NOT disclose vulnerabilities publicly in GitHub issues.
+
+  - name: 🌐 Ijma Wallet Website
+    url: https://www.ijmawallet.com
+    about: Learn more about the project, documentation, and releases.
+
+  - name: 📬 General Contact
+    url: mailto:ijma@blockchainology.co.uk
+    about: For non-security questions or general inquiries.
