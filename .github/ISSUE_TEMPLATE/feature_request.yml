@@ -1,0 +1,86 @@
+name: "✨ Feature Request"
+description: "Suggest a new feature or improvement for Ijma Wallet"
+title: "[Feature]: "
+labels: ["enhancement"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for helping improve Ijma Wallet.  
+        Please provide clear details so we can evaluate and plan the feature effectively.
+
+  - type: input
+    id: summary
+    attributes:
+      label: "Feature Summary"
+      description: "A short description of the feature you’re proposing."
+      placeholder: "e.g., Add support for multiple wallets"
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: "Motivation / Problem"
+      description: "What problem does this feature solve? Why is it important?"
+      placeholder: |
+        Describe the user problem or limitation.
+        Explain why this matters for security, UX, or functionality.
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: "Proposed Solution"
+      description: "Describe how the feature should work."
+      placeholder: |
+        - What should the UI/UX look like?
+        - What should the workflow be?
+        - Any technical notes?
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: "Alternatives Considered"
+      description: "Have you considered other approaches?"
+      placeholder: "List any alternative solutions or workarounds."
+
+  - type: dropdown
+    id: scope
+    attributes:
+      label: "Scope"
+      description: "Which part of the wallet does this affect?"
+      options:
+        - UI/UX
+        - Wallet Core
+        - Transaction Flow
+        - Security / Privacy
+        - Backup & Recovery
+        - Localization
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: "Expected Impact"
+      description: "How will this improve the wallet for users?"
+      placeholder: "e.g., Improves onboarding, reduces errors, enhances privacy."
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: "Checklist"
+      options:
+        - label: "I have searched existing issues"
+          required: true
+        - label: "This is not a duplicate"
+          required: true
+        - label: "This feature aligns with Ijma Wallet’s goals of sovereignty, simplicity, and safety"
+          required: true
