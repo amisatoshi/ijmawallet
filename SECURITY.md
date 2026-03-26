@@ -4,15 +4,16 @@
 
 | Version | Supported |
 |---------|-----------|
-| 0.2.x   | ✅ Active |
-| 0.1.x   | ⚠️ Critical fixes only |
+| 0.3.x   | ✅ Active |
+| 0.2.x   | ⚠️ Critical fixes only |
+| 0.1.x   | ❌ Not supported |
 | < 0.1.0 | ❌ Not supported |
 
 ---
 
 ## ⚠️ Important disclaimer
 
-Ijma Wallet v0.2.0 is a **demo release**. It has not undergone a professional
+Ijma Wallet v0.3.0 is a **demo release**. It has not undergone a professional
 third-party security audit. Do not store amounts you cannot afford to lose
 until v1.0.0, which will include a published Cure53 or equivalent audit.
 
@@ -27,7 +28,7 @@ them before they can be exploited.
 
 ### How to report
 
-**Email:** security@blockchainology.co.uk
+**Email:** ijma@blockchainology.co.uk
 
 **Subject line:** `[SECURITY] Ijma Wallet — <brief description>`
 
