@@ -1,0 +1,81 @@
+name: "🐞 Bug Report"
+description: "Report a reproducible issue in Ijma Wallet"
+title: "[Bug]: "
+labels: ["bug"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to report a bug.  
+        Please provide as much detail as possible so we can reproduce and fix the issue.
+
+  - type: input
+    id: environment
+    attributes:
+      label: "Environment"
+      description: "Where did this occur?"
+      placeholder: "e.g., Windows 11, Android 14, iOS 17, Chrome 123"
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: "Steps to Reproduce"
+      description: "List the exact steps to reproduce the issue."
+      placeholder: |
+        1. Open the app
+        2. Navigate to Wallet → Send
+        3. Enter amount
+        4. App crashes
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: "Expected Behaviour"
+      placeholder: "What should have happened?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: "Actual Behaviour"
+      placeholder: "What actually happened?"
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: "Logs / Screenshots"
+      description: "Attach logs, screenshots, or crash reports if available."
+      placeholder: "Drag and drop files here"
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: "Severity"
+      options:
+        - Low (minor issue)
+        - Medium (affects functionality)
+        - High (critical issue)
+        - Security (potential vulnerability)
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: "Checklist"
+      options:
+        - label: "I have searched existing issues"
+          required: true
+        - label: "This is not a duplicate"
+          required: true
+        - label: "I am using the latest version"
+          required: true
