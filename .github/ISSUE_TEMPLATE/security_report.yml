@@ -1,0 +1,90 @@
+name: "🛡️ Security Report"
+description: "Report a security vulnerability in Ijma Wallet (responsible disclosure)"
+title: "[Security]: "
+labels: ["security"]
+assignees: []
+
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for taking the time to responsibly disclose a security issue.
+
+        **⚠️ IMPORTANT: Do NOT include sensitive exploit details in this public issue.**
+        This form is only for initial contact and high‑level summaries.
+
+        For full details, please contact us privately:
+
+        **Security Email:** ijma@blockchainology.co.uk  
+        **PGP Public Key:** https://www.blockchainology.co.uk/pgp.asc  
+        **Fingerprint:** EF16 F877 B3B0 1101 295D 66EA 5836 DA5B 9509 788D  
+
+        We strongly encourage you to **encrypt your message using our PGP key**.
+
+  - type: input
+    id: summary
+    attributes:
+      label: "High‑Level Summary"
+      description: "Briefly describe the nature of the vulnerability without sensitive details."
+      placeholder: "e.g., Possible bypass in transaction confirmation flow"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: "Estimated Severity"
+      options:
+        - Critical (funds at risk)
+        - High (security/privacy risk)
+        - Medium (unexpected behavior with potential risk)
+        - Low (unlikely to be exploitable)
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: "Potential Impact"
+      description: "What could happen if this vulnerability were exploited?"
+      placeholder: |
+        - Unauthorized transaction
+        - Privacy leak
+        - Wallet state corruption
+        - Denial of service
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: "Reproduction (High‑Level)"
+      description: |
+        Provide a general outline of how the issue can be reproduced.
+        **Do NOT include sensitive exploit details here.**
+      placeholder: |
+        1. Navigate to...
+        2. Perform...
+        3. Observe unexpected behavior...
+    validations:
+      required: true
+
+  - type: textarea
+    id: environment
+    attributes:
+      label: "Environment"
+      placeholder: "e.g., Android 14, iOS 17, Windows 11, Browser version"
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: confirmations
+    attributes:
+      label: "Responsible Disclosure Checklist"
+      options:
+        - label: "I understand this issue will be publicly visible"
+          required: true
+        - label: "I have NOT included sensitive exploit details"
+          required: true
+        - label: "I will send full details privately using the PGP key"
+          required: true
