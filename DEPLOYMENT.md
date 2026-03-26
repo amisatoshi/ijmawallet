@@ -326,55 +326,47 @@ npm run build
 Create `public_html/.htaccess`:
 
 ```apache
-# Ijma Wallet — Apache config for PWA + Security
+# Ijma Wallet PWA — /app/ subfolder
 
-# ─── SPA routing (all paths → index.html) ─────────────────
+# ─── SPA routing (all paths → app's index.html) ───────────
 <IfModule mod_rewrite.c>
   RewriteEngine On
-  RewriteBase /
+  RewriteBase /app/
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
-  RewriteRule . /index.html [L]
+  RewriteRule . /app/index.html [L]
 </IfModule>
 
 # ─── Security Headers ──────────────────────────────────────
 <IfModule mod_headers.c>
-  # Prevent clickjacking
-  Header always set X-Frame-Options "DENY"
-
-  # Prevent MIME sniffing
+  Header always set X-Frame-Options "SAMEORIGIN"
   Header always set X-Content-Type-Options "nosniff"
-
-  # XSS protection
   Header always set X-XSS-Protection "1; mode=block"
-
-  # Referrer policy (privacy)
-  Header always set Referrer-Policy "no-referrer"
-
-  # Strict Transport Security (HTTPS only — 1 year)
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload"
 
-  # Content Security Policy
-  # IMPORTANT: Adjust connect-src for your Nostr relays and APIs
-  Header always set Content-Security-Policy "default-src 'self'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self' 'unsafe-inline'; connect-src 'self' https://mempool.space https://api.coingecko.com wss://relay.damus.io wss://relay.nostr.band wss://nos.lol wss://relay.primal.net https://mint.minibits.cash https://legend.lnbits.com; img-src 'self' data: https:; font-src 'self'; manifest-src 'self'; worker-src 'self'"
+  # CSP for the wallet app — tighter than the landing page
+  Header always set Content-Security-Policy "default-src 'self'; \
+    script-src 'self' 'wasm-unsafe-eval'; \
+    style-src 'self' 'unsafe-inline'; \
+    connect-src 'self' https://mempool.space https://api.coingecko.com wss://relay.damus.io wss://relay.nostr.band wss://nos.lol wss://relay.primal.net https://mint.minibits.cash https://legend.lnbits.com; \
+    img-src 'self' data: https:; \
+    font-src 'self'; \
+    manifest-src 'self'; \
+    worker-src 'self'"
 
-  # Permissions policy (disable browser features we don't use)
   Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), payment=()"
 </IfModule>
 
 # ─── Caching ────────────────────────────────────────────────
 <IfModule mod_expires.c>
   ExpiresActive On
-  # HTML — no cache (always fresh)
-  ExpiresByType text/html "access plus 0 seconds"
-  # JS/CSS — long cache (Vite adds content hash)
-  ExpiresByType application/javascript "access plus 1 year"
-  ExpiresByType text/css "access plus 1 year"
-  # Images
-  ExpiresByType image/png "access plus 1 month"
-  ExpiresByType image/svg+xml "access plus 1 month"
-  # Manifest — short cache
+  ExpiresByType text/html                "access plus 0 seconds"
+  ExpiresByType application/javascript   "access plus 1 year"
+  ExpiresByType text/css                 "access plus 1 year"
+  ExpiresByType image/png                "access plus 1 month"
+  ExpiresByType image/svg+xml            "access plus 1 month"
   ExpiresByType application/manifest+json "access plus 1 day"
 </IfModule>
 
@@ -385,18 +377,12 @@ Create `public_html/.htaccess`:
   AddOutputFilterByType DEFLATE text/css
   AddOutputFilterByType DEFLATE application/manifest+json
 </IfModule>
-
-# ─── Force HTTPS ────────────────────────────────────────────
-<IfModule mod_rewrite.c>
-  RewriteCond %{HTTPS} off
-  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
-</IfModule>
 ```
 
 ### 7.3 Automated deploy with GitHub Actions → Hostinger FTP
 
 Add this secret in GitHub → Settings → Secrets:
-- `HOSTINGER_FTP_HOST` = your FTP host (e.g. `ftp.ijmawallet.com`)
+- `HOSTINGER_FTP_HOST` = your FTP host
 - `HOSTINGER_FTP_USER` = your FTP username
 - `HOSTINGER_FTP_PASS` = your FTP password
 
@@ -562,21 +548,21 @@ npm run build
 ### 10.3 Nginx configuration
 
 ```nginx
-# /etc/nginx/sites-available/ijmawallet.com
+# /etc/nginx/sites-available/yourdomain.com
 
 server {
     listen 80;
-    server_name ijmawallet.com www.ijmawallet.com;
+    server_name yourdomain.com www.yourdomain.com;
     return 301 https://$host$request_uri;
 }
 
 server {
     listen 443 ssl http2;
-    server_name ijmawallet.com www.ijmawallet.com;
+    server_name yourdomain.com www.yourdomain.com;
 
     # SSL — managed by Certbot
-    ssl_certificate /etc/letsencrypt/live/ijmawallet.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/ijmawallet.com/privkey.pem;
+    ssl_certificate /etc/letsencrypt/live/yourdomain.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/yourdomain.com/privkey.pem;
     ssl_protocols TLSv1.2 TLSv1.3;
     ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256;
     ssl_prefer_server_ciphers on;
@@ -619,12 +605,12 @@ server {
 
 ```bash
 # Enable site
-ln -s /etc/nginx/sites-available/ijmawallet.com /etc/nginx/sites-enabled/
+ln -s /etc/nginx/sites-available/yourdomain.com /etc/nginx/sites-enabled/
 nginx -t
 systemctl reload nginx
 
 # SSL certificate (free via Let's Encrypt)
-certbot --nginx -d ijmawallet.com -d www.ijmawallet.com
+certbot --nginx -d yourdomain.com -d www.yourdomain.com
 
 # Auto-renew SSL
 systemctl enable certbot.timer
@@ -670,9 +656,9 @@ fix/*        → bug fixes
 
 ```markdown
 [![License: MIT](https://img.shields.io/badge/License-MIT-orange.svg)](LICENSE)
-[![PWA](https://img.shields.io/badge/PWA-ready-blue)](https://ijmawallet.com)
-[![Bitcoin](https://img.shields.io/badge/Bitcoin-mainnet-orange)](https://ijmawallet.com)
-[![Nostr](https://img.shields.io/badge/Nostr-integrated-purple)](https://ijmawallet.com)
+[![PWA](https://img.shields.io/badge/PWA-ready-blue)](https://yourdomain.com)
+[![Bitcoin](https://img.shields.io/badge/Bitcoin-mainnet-orange)](https://yourdomain.com)
+[![Nostr](https://img.shields.io/badge/Nostr-integrated-purple)](https://yourdomain.com)
 ```
 
 ---
@@ -746,7 +732,7 @@ jobs:
 
 The app currently simulates Lightning balances. To connect real Lightning:
 
-### Option A — Breez SDK (Recommended for Phase 2)
+### Option A — Breez SDK (Planned for Phase 2)
 
 Breez SDK provides an embedded Lightning node — no server required.
 
@@ -874,7 +860,7 @@ const event = createProfileEvent(session.nostr.privkey, {
   name: meta.username,
   about: 'Bitcoin sovereign. Ijma Wallet user.',
   picture: 'https://...',
-  nip05: `${meta.username}@ijmawallet.com`,
+  nip05: `${meta.username}@yourdomain.com`,
   lud16: meta.lightningAddress,  // Lightning Address
 })
 await publishEvent(event)
@@ -882,7 +868,7 @@ await publishEvent(event)
 
 ### NIP-05 verification server
 
-Host a `/.well-known/nostr.json` on ijmawallet.com:
+Host a `/.well-known/nostr.json` on yourdomain.com:
 
 ```json
 {
@@ -928,7 +914,7 @@ const invoice = await fetchZapInvoice(
 
 ### iOS (Safari)
 
-1. Open `https://ijmawallet.com` in Safari
+1. Open `https://www.ijmawallet.com/app` in Safari
 2. Tap the Share button (box with arrow)
 3. Scroll down → **"Add to Home Screen"**
 4. Tap **Add**
@@ -937,7 +923,7 @@ The app will open full-screen with no browser UI.
 
 ### Android (Chrome)
 
-1. Open `https://ijmawallet.com` in Chrome
+1. Open `https://www.ijmawallet.com/app` in Chrome
 2. Chrome will show an install banner automatically
 3. Or: tap **⋮ menu** → **"Add to Home screen"**
 
@@ -999,7 +985,7 @@ Before handling real funds, ensure ALL of these are done:
 
 ## 18. Roadmap to Full Production
 
-### Phase 1 — Current (v0.1.0)
+### Phase 1 — Current (v0.3.x)
 ✅ Real BIP39 mnemonic generation  
 ✅ NIP-06 Nostr key derivation from seed  
 ✅ AES-256-GCM vault encryption  
@@ -1010,7 +996,7 @@ Before handling real funds, ensure ALL of these are done:
 ✅ Bitcoin address derivation (SegWit + Taproot)  
 ✅ Mempool.space fee/balance API  
 
-### Phase 2 (v0.2.0) — Q3 2026
+### Phase 2 (v0.4.0) — Q2 2026
 - [ ] Breez SDK — real Lightning send/receive
 - [ ] QR code scanning (camera)
 - [ ] Real-time Nostr relay subscriptions
@@ -1019,7 +1005,7 @@ Before handling real funds, ensure ALL of these are done:
 - [ ] NIP-05 verification display
 - [ ] LNURL-pay and LNURL-withdraw
 
-### Phase 3 (v0.3.0) — Q4 2026
+### Phase 3 (v0.5.0) — Q4 2026
 - [ ] Fedimint client (fedimint-client WASM)
 - [ ] Hardware wallet (Jade, Coldcard via WebUSB)
 - [ ] Social recovery (Shamir's Secret Sharing via Nostr DMs)
@@ -1043,7 +1029,7 @@ Before handling real funds, ensure ALL of these are done:
 - **Website:** https://www.ijmawallet.com
 - **GitHub:** https://github.com/amisatoshi/ijmawallet
 - **Built by:** [Blockchainology](https://www.blockchainology.co.uk)
-- **Nostr:** npub of the project
+- **Nostr:** npub18z533j9gxhnlkqukp75wnd5mjv5njqkaj07atslnrk2dp9rxsp0q6650l4 (lead maintainer)
 
 ---
 
